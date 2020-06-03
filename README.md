@@ -1,2 +1,2 @@
-# program
-for algorithms and problems
+## 记录算法与一些难题的解决
+慢慢补充
