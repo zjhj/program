@@ -1,7 +1,7 @@
 ## 编码的一些记录
 
 ### 各类语言的库、语法
-- [Python] ( https://github.com/zjhj/program/blob/master/python )
+- [Python]( https://github.com/zjhj/program/blob/master/python )
 - C
 - Go
 - JavaScript
