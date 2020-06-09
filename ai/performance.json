@@ -1,0 +1,7 @@
+{"传输性能数据.xlsx": 
+	{ "OTN-板卡（CRD）": ["temperature（单板温度）"],
+	  "OTN-激光器（OPM）": ["rxPower（接收光功率）", "txPower（发送光功率）"],
+	  "PTN-板卡（CRD）": ["temperature（温度）"],
+	  "PTN-激光器（OPM）": ["rxPower（接收光功率）", "txPower（发送光功率）"]
+	}
+}
