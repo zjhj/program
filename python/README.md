@@ -1,7 +1,8 @@
 ## python的使用记录
 
 ### WEB类
-#### request+beautifulsoup抓bing的背景图
+#### requests
+requests+beautifulsoup抓bing的背景图
 ```python
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
@@ -20,6 +21,24 @@ if r.status_code == 200:
 	print( r.raw.getheaders()['Content-Type'] )
 	with open(image_name+'.jpg','wb') as fp:
 		fp.write( r.content )
+```
+部分方法和属性：
+```
+>>> cs = {'token': '12345', 'status': 'working'}
+>>> r = requests.get( 'https://cn.bing.com', headers={'User-Agent': 'Mozilla/5.0 AppleWebKit'}, params={'a':'1','b':'2'}, cookies=cs, timeout=2 )
+>>> r.url
+'https://cn.bing.com/?a=1&b=2'
+>>> r.encoding
+'utf-8'
+>>> r.headers  # 获取响应头，dict类型
+>>> r.content  # 获取响应内容的bytes对象
+>>> r.json()   # 响应内容为json数据，可直接解析
+>>> r = requests.post( 'https://cn.bing.com', data={'a':'1','b':'2'} )
+>>> r = requests.post(url, json=params)  # params为dict，内部自动序列化为JSON?
+
+#文件上传
+>>> upload_files = {'file': open('report.xls', 'rb')}
+>>> r = requests.post(url, files=upload_files)
 ```
 
 #### curl
