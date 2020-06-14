@@ -6,10 +6,11 @@
 - Go
 - JavaScript
 
-### 算法
+### [算法]( algorithm/ )
 - 排序
 - 树
 - 图
+- 杂项
 
 ### [AI相关]( https://github.com/zjhj/program/blob/master/ai )
 
