@@ -1,8 +1,3 @@
-## python的使用记录
-
-### WEB类
-#### request+beautifulsoup抓bing的背景图
-```python
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 from bs4 import BeautifulSoup
@@ -20,29 +15,3 @@ if r.status_code == 200:
 	print( r.raw.getheaders()['Content-Type'] )
 	with open(image_name+'.jpg','wb') as fp:
 		fp.write( r.content )
-```
-
-#### curl
-
-### 网络类
-#### scapy
-#### pwn
-
-### 图形类
-#### PIL
-
-### 数据类
-#### numpy
-numpy求解方程组代码，二元一次方程组及求解代码示例如下：
-```
-x + 2y = 3
-4x + 5y = 6
-
-import numpy as np
-A = np.mat('1,2; 4,5')
-b = np.mat('3,6').T
-r = np.linalg.solve(A,b)
-print( r )
-```
-
-#### pandas
