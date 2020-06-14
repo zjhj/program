@@ -21,9 +21,9 @@ def do_main():
 		cnt = 0
 
 		while True:
-				if cnt > 500000 or abs( y*y-x ) < 1e-30:
-						break
-				else:
+			if cnt > 500000 or abs( y*y-x ) < 1e-30:
+				break
+			else:
 				y = ( y+x/y ) / 2
 				cnt += 1
 
