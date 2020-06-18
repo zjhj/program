@@ -65,3 +65,6 @@ print( r )
 ```
 
 #### pandas
+
+### 类型转换
+#### binascii
