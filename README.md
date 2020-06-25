@@ -2,7 +2,7 @@
 
 ### 各类语言的库、语法
 - [Python]( https://github.com/zjhj/program/blob/master/python )
-- C
+- [C](c/)
 - Go
 - JavaScript
 
