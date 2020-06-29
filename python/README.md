@@ -1,6 +1,4 @@
-## python库的记录
-
-### requests
+## requests
 requests+beautifulsoup抓bing的背景图
 ```python
 #!/usr/bin/python3
@@ -40,7 +38,7 @@ if r.status_code == 200:
 >>> r = requests.post(url, files=upload_files)
 ```
 
-### curl
+## curl
 设置文件上传：
 ```
 c.setopt( pycurl.HTTPPOST, [('file',(pycurl.FORM_FILE,'11.php', pycurl.FORM_FILENAME, '11.php'))])
@@ -48,19 +46,39 @@ c.setopt( pycurl.HTTPPOST, [('file',(pycurl.FORM_FILE,'11.php', pycurl.FORM_FILE
 设置POST方法：`c.setopt( pycurl.POST, True )`
 设置head方法：`c.setopt( c.NOBODY, True )`
 
-### scapy
+## scapy
 模拟syn flood攻击：
 ```
 from scapy.all import *
 pkt = IP(dst='121.40.205.55',src='218.2.135.1')/TCP(dport=22,flags="S")
 send(pkt)
 ```
+解析pcap，下面是一个从easycap.pcap中抓取flag的示例：
+```python
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
 
-### pwn
+from scapy.all import *
 
-### PIL
+import sys
 
-### numpy
+packets = rdpcap( sys.argv[1] )
+
+data = b''
+for curr_packet in packets:
+	if hasattr( curr_packet,'load' ):
+		data += curr_packet.load
+
+print( data )
+```
+packets可以通过layers方法查看报文中数据层级，通过iterpayloads方法可以把每一层级的数据遍历出来。
+
+
+## pwn
+
+## PIL
+
+## numpy
 numpy求解方程组代码，二元一次方程组及求解代码示例如下：
 ```
 x + 2y = 3
@@ -73,6 +91,6 @@ r = np.linalg.solve(A,b)
 print( r )
 ```
 
-### pandas
+## pandas
 
-### binascii
+## binascii
