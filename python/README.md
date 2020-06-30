@@ -1,3 +1,13 @@
+## 基本语法
+两个list合并为一个dict的方法：
+```python
+>>> a = ['a','b']
+>>> b = [1,2]
+>>> dict( zip(a,b) )
+{'a': 1, 'b': 2}
+```
+dict合并可以使用`dict.update`
+
 ## requests
 requests+beautifulsoup抓bing的背景图
 ```python
