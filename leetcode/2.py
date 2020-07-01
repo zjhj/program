@@ -37,40 +37,26 @@ class Solution:
 		res = []
 		carry = 0
 
-		while l1 is not None and l2 is not None:
-			print( l1.val,l2.val,carry )
+		while l1 is not None or l2 is not None:
+			# print( l1.val,l2.val,carry )
 
-			sum = l1.val+l2.val+carry
+			v1 = 0 if l1 is None else l1.val
+			v2 = 0 if l2 is None else l2.val
+
+			sum = v1 + v2 + carry
 			carry = sum//10
 			res.append(sum)
 			if carry > 0:
 				res[len(res)-1] -= 10
 
-			l1 = l1.next
-			l2 = l2.next
+			l1 = l1.next if l1 is not None else None
+			l2 = l2.next if l2 is not None else None
 
-		if l1 is None and l2 is None and carry>0:
+		if carry>0:
 			res.append( carry )
-
-		if l1 is None:
-			while l2 is not None:
-				sum = l2.val + carry
-				carry = sum//10
-				res.append(sum)
-				if carry > 0:
-					res[len(res)-1] -= 10
-				l2 = l2.next
-		else:
-			while l1 is not None:
-				sum = l1.val + carry
-				carry = sum//10
-				res.append(sum)
-				if carry > 0:
-					res[len(res)-1] -= 10
-				l1 = l1.next
 
 		return init_node( res )
 
 a = Solution()
 # print_node( a.addTwoNumbers( init_node([2,4,3]),init_node([5,6,4]) ) )
-print_node( a.addTwoNumbers( init_node([3]),init_node([1,8]) ) )
+print_node( a.addTwoNumbers( init_node([1]),init_node([9,9,1]) ) )
