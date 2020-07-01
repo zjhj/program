@@ -1,6 +1,13 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
-# 第一版，暴力解法
+
+"""
+brute force
+
+1. start from the pointer points to the 1st element
+2. compare the summary of the element pointed and the elements behind it
+3. if not found, pointer moves forward, repeat 2 until reach last element
+"""
 
 class Solution:
     # def twoSum(self, nums: List[int], target: int) -> List[int]:

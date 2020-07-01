@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
+"""
+1. convert the list to the dictionary structure, keys are the values in list, values are lists of locations
+2. use the key to compute summary, return when found the summary equals to the target, need to reslove the situation exist same elements
+"""
+
 class Solution:
     # def twoSum(self, nums: List[int], target: int) -> List[int]:
     def twoSum(self, nums, target):
