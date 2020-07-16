@@ -15,6 +15,7 @@ num = 6957464
 fp.write( num.to_bytes(4,'little',signed=True) )   # mode='wb', b'\x98)j\x00'
 b= '98296a00'
 int.from_bytes( bytes.fromhex(b),'little' )
+# int.from_bytes( b'\x98)j\x00','little' )
 ```
 
 ## requests
