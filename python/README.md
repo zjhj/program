@@ -1,4 +1,5 @@
 ## 基本语法
+### list/dict/...
 两个list合并为一个dict的方法：
 ```python
 >>> a = ['a','b']
@@ -7,6 +8,14 @@
 {'a': 1, 'b': 2}
 ```
 dict合并可以使用`dict.update`
+
+### int & bytes 转换
+```
+num = 6957464
+fp.write( num.to_bytes(4,'little',signed=True) )   # mode='wb', b'\x98)j\x00'
+b= '98296a00'
+int.from_bytes( bytes.fromhex(b),'little' )
+```
 
 ## requests
 requests+beautifulsoup抓bing的背景图
