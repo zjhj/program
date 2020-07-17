@@ -1,5 +1,5 @@
-## 基本语法
-### list/dict/...
+# 基本语法
+## list/dict/...
 两个list合并为一个dict的方法：
 ```python
 >>> a = ['a','b']
@@ -9,7 +9,7 @@
 ```
 dict合并可以使用`dict.update`
 
-### int & bytes 转换
+## int & bytes 转换
 ```
 num = 6957464
 fp.write( num.to_bytes(4,'little',signed=True) )   # mode='wb', b'\x98)j\x00'
@@ -18,6 +18,7 @@ int.from_bytes( bytes.fromhex(b),'little' )
 # int.from_bytes( b'\x98)j\x00','little' )
 ```
 
+# 网络相关
 ## requests
 requests+beautifulsoup抓bing的背景图
 ```python
@@ -93,10 +94,22 @@ print( data )
 ```
 packets可以通过layers方法查看报文中数据层级，通过iterpayloads方法可以把每一层级的数据遍历出来。
 
+# 内容解析
+## BeautifulSoup
+```
+r = requests.get( base_url )
+from bs4 import BeautifulSoup
+b = BeautifulSoup( r.text, 'lxml' )
+b.find_all( name='div',attrs={'class':'title'} )
+```
 
+# Hacker
 ## pwn
 
+# 图形处理
 ## PIL
+
+# AI相关
 
 ## numpy
 numpy求解方程组代码，二元一次方程组及求解代码示例如下：
@@ -112,5 +125,3 @@ print( r )
 ```
 
 ## pandas
-
-## binascii
