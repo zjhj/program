@@ -109,7 +109,7 @@ b.find_all( name='div',attrs={'class':'title'} )
 # 图形处理
 ## PIL
 
-# AI相关
+# 数据处理相关
 
 ## numpy
 numpy求解方程组代码，二元一次方程组及求解代码示例如下：
@@ -125,3 +125,13 @@ print( r )
 ```
 
 ## pandas
+
+## tensorflow
+安装完毕后导入，出现类似以下的提示：
+```
+>>> import tensorflow
+/usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+  /usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+```
+是由于numpy版本导致（过高过低都不行），换成1.16.4版本解决`pip3 install numpy==1.16.4`。
