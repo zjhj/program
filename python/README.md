@@ -96,6 +96,7 @@ packets可以通过layers方法查看报文中数据层级，通过iterpayloads�
 
 # 内容解析
 ## BeautifulSoup
+抓bing的背景图的两个例子 [国内地址](get_bingbg.py) [国外地址](get_bing_i18n.py)
 ```
 r = requests.get( base_url )
 from bs4 import BeautifulSoup
