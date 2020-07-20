@@ -14,6 +14,7 @@ try:
 	browser = webdriver.Firefox()
 	browser.get( 'url_of_oa' )
 
+	# fill the login information
 	browser.find_element_by_id('userid').send_keys( 'user_name' )
 	browser.find_element_by_id('password').send_keys( 'user_pswd' )
 	browser.find_element_by_id('veryCode').click()
@@ -34,6 +35,7 @@ try:
 	for curr_link in browser.find_elements_by_class_name('eachdata'):
 		if curr_link.text == '通讯录':
 			curr_link.click()
+			break
 
 	for curr_handle in browser.window_handles:
 		if curr_handle != browser.current_window_handle:

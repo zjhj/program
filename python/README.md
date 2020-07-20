@@ -44,6 +44,7 @@ if r.status_code == 200:
 ```
 >>> cs = {'token': '12345', 'status': 'working'}
 >>> r = requests.get( 'https://cn.bing.com', headers={'User-Agent': 'Mozilla/5.0 AppleWebKit'}, params={'a':'1','b':'2'}, cookies=cs, timeout=2 )
+>>> r = requests.get( url,allow_redirects=True )    # 自动重定向
 >>> r.url
 'https://cn.bing.com/?a=1&b=2'
 >>> r.encoding
