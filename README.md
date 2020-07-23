@@ -4,7 +4,7 @@
 - [Python]( https://github.com/zjhj/program/blob/master/python )
 - [C](c/)
 - Go
-- JavaScript
+- [JavaScript](javascript/)
 
 ### [算法]( algorithm/ )
 - 排序
