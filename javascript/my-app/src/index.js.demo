@@ -1,0 +1,98 @@
+import React, { useState,Component } from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
+import axios from 'axios';
+import {
+  Form,
+  Input,
+  Button,
+  Radio,
+  Select,
+  Cascader,
+  DatePicker,
+  InputNumber,
+  TreeSelect,
+  Switch,
+} from 'antd';
+
+const tailLayout = {
+  wrapperCol: { offset:6, span:14 },
+};
+
+const FormSizeDemo = () => {
+  const [componentSize, setComponentSize] = useState('default');
+
+  const onFormLayoutChange = ({ size }) => {
+    setComponentSize(size);
+  };
+
+  return (
+    <>
+      <Form
+        labelCol={{
+          span: 6,
+        }}
+        wrapperCol={{
+          span: 14,
+        }}
+        layout="horizontal"
+        initialValues={{
+          size: componentSize,
+        }}
+        onValuesChange={onFormLayoutChange}
+        size={componentSize}
+      >
+        <Form.Item label="设备信息登记" name="device_info">
+          <Radio.Group>
+            <Radio.Button value="small">Small</Radio.Button>
+            <Radio.Button value="default">Default</Radio.Button>
+            <Radio.Button value="large">Large</Radio.Button>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="设备名称">
+          <Input />
+        </Form.Item>
+        <Form.Item label="归属专业室">
+          <Select>
+            <Select.Option value="nms">网管系统室</Select.Option>
+            <Select.Option value="core">核心网络室</Select.Option>
+            <Select.Option value="safe">安全室</Select.Option>
+            <Select.Option value="moni">网络监控室</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="用途选择">
+          <TreeSelect
+            treeData={[
+              {
+                title: '业务支撑',
+                value: 'support',
+                children: [
+                  {
+                    title: '综合资管',
+                    value: 'nms_fund',
+                  },
+                  {
+                    title: '故障管理',
+                    value: 'error',
+				  }
+                ],
+              },
+            ]}
+          />
+        </Form.Item>
+        <Form.Item label="入网时间">
+          <DatePicker />
+        </Form.Item>
+        <Form.Item {...tailLayout}>
+          <Button type="primary">提交</Button>
+        </Form.Item>
+      </Form>
+    </>
+  );
+};
+
+ReactDOM.render(<FormSizeDemo />, document.getElementById('root'));
+
+componentDidMount() {
+	console.log( '122' )
+}
