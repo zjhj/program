@@ -95,6 +95,13 @@ print( data )
 ```
 packets可以通过layers方法查看报文中数据层级，通过iterpayloads方法可以把每一层级的数据遍历出来。
 
+## django
+如果pip或者通过其他的方式无法安装MySQLdb，可以使用pymysql代替，django主项目的__init__.py头部加一行即可：
+```
+import pymysql
+pymysql.install_as_MySQLdb()
+```
+
 # 内容解析
 ## BeautifulSoup
 抓bing的背景图的两个例子 [国内地址](get_bingbg.py) [国外地址](get_bing_i18n.py)

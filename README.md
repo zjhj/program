@@ -3,6 +3,7 @@
 ### 各类语言的库、语法
 - [Python]( https://github.com/zjhj/program/blob/master/python )
 - [C](c/)
+- [C++](c++/)
 - Go
 - [JavaScript](javascript/)
 
