@@ -134,6 +134,7 @@ print( r )
 ```
 
 ## pandas
+列类型转换：`df['example'] = df['example'].astype("int64")`<br>
 
 ## tensorflow
 安装完毕后导入，出现类似以下的提示：
