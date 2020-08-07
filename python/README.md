@@ -145,3 +145,12 @@ print( r )
   /usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
 ```
 是由于numpy版本导致（过高过低都不行），换成1.16.4版本解决`pip3 install numpy==1.16.4`。
+
+## matplotlib
+设置中文，先将windows的fonts目录下的文件（这里用了雅黑）复制到/usr/share/fonts/目录下，为了便于管理，建立一个chinese目录：
+```
+from matplotlib.font_manager import FontProperties
+chinese_font = FontProperties(fname='/usr/share/fonts/chinese/msyh.ttc' )
+plt.text(0.5,0.5,'江苏', fontsize=12, fontproperties=chinese_font)
+plt.show()
+```
