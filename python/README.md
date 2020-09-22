@@ -18,6 +18,8 @@ int.from_bytes( bytes.fromhex(b),'little' )
 # int.from_bytes( b'\x98)j\x00','little' )
 ```
 
+# [并发相关](concurrency.md)
+
 # 网络相关
 ## requests
 requests+beautifulsoup抓bing的背景图
