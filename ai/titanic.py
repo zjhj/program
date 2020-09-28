@@ -9,6 +9,10 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import RandomForestClassifier
 
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
+from sklearn import metrics
+
 import xgboost as xgb
 
 # 数据预处理，填充缺失值以及将特征中含有字符的转换为数值型
@@ -86,7 +90,7 @@ def dome():
 	#scikit-learn的线性回归算法
 
 	# regr = GradientBoostingClassifier()
-	# regr = RandomForestClassifier()
+	# regr = RandomForestClassifier( n_estimators=100 )
 	# regr = linear_model.LinearRegression()
 	# regr = xgb.XGBClassifier( max_depth=5,learning_rate=0.1,n_estimators=160,silent=True,objective='nulti:softmax' )
 	regr = xgb.XGBClassifier(max_depth=5, learning_rate=0.05, n_estimators=160, objective='binary:logistic')
@@ -123,6 +127,12 @@ def dome():
 	print("MSE: %.2f" % mean_squared_error(y_test, Y_pred))
 	#R2（Variance score），值为0-1之间，越大越好
 	print('R2: %.2f' % r2_score(y_test, Y_pred))
+
+	print( '------------------------------------------------------------' )
+	print(accuracy_score(y_test, Y_pred))
+	print(f1_score(y_test, Y_pred, average='macro'))
+	fpr, tpr, thresholds = metrics.roc_curve(y_test, Y_pred)
+	print(metrics.auc(fpr, tpr))
 
 if __name__ == "__main__":
 	dome()

@@ -44,3 +44,6 @@ python3
 >>> type( range(100) )
 <class 'range'>
 ```
+
+### 变参
+函数传参使用*、**，分别对应tuple和dict结构。
