@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+class Solution:
+	# def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
+	def countRangeSum( self,nums,lower,upper ):
+		print( "nums is: {}".format(nums) )
+		distData = dict()
+		totCnt = 0
+		for i in range( 1,len(nums)+1 ):
+			for j in range( len(nums)+1-i ):
+				currDataSet = nums[j:j+i]
+				print( "i={0},currDataSet={1}".format(i,currDataSet) )
+				currSum = 0
+				for k in currDataSet:
+					currSum += k
+				if lower<= currSum <= upper:
+					if currSum not in distData.keys():
+						distData[currSum] = list()
+					distData[currSum].append( (j,j+i-1) )
+					totCnt += 1
+		# return distData
+		return totCnt
+
+# print( Solution.countRangeSum( [-2,5,-1],-2,2 )  )
+a = Solution()
+print( a.countRangeSum( [-2,5,-1],-2,2 )  )

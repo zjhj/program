@@ -1,0 +1,68 @@
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+import random
+import math
+
+class Solution( object ):
+	def __init__( self,grid ):
+		self.grid = grid
+	
+	def isValid( self ):
+		if type( self.grid ) != list or type( self.grid[0] ) != list:
+			return False
+
+		curr_data = grid[0][0]
+
+		for i in grid:
+			for j in i:
+				if j != curr_data:
+					return True
+
+		return False
+
+	def maxDistance( self ):
+		if not isValid():
+			return -1
+
+		distData = dict()
+
+		for i,line_data in enumerate(self.grid):
+			for j,cell_data in enumerate(line_data):
+					print( i,j,cell_data )
+					if cell_data == 0:
+						maxDist = len(self.grid)*2
+						for a in range( -len(self.grid),len(self.grid)+1 ):
+							for b in range( -len(self.grid),len(self.grid)+1 ):
+								if i+a<0 or i+a>=len(self.grid) or j+b<0 or j+b>=len(self.grid):
+									continue
+								elif self.grid[i+a][j+b] == 1:
+									currDist = int( math.fabs(a)+math.fabs(b) )
+									if currDist < maxDist:
+										maxDist = currDist
+						distData[(i,j)] = maxDist
+
+		distNeed = -1
+		for _ in distData:
+			if distData[_]>distNeed:
+				distNeed = distData[_]
+
+		print( distData )
+		return distNeed
+
+def do_main():
+	n = 5
+
+	grid = list()
+	for i in range(n):
+		line_data = list()
+		for j in range(n):
+			line_data.append( random.randint(0,1) )
+		grid.append( line_data )
+
+	for i in grid:
+		print(i)
+	print( Solution(grid).maxDistance() )
+
+if __name__ == '__main__':
+	do_main()

@@ -1,3 +1,5 @@
+# [Note for Fluent Python 2015](fluent_python/)
+
 # 基本语法
 ## list/dict/...
 两个list合并为一个dict的方法：
@@ -8,6 +10,9 @@
 {'a': 1, 'b': 2}
 ```
 dict合并可以使用`dict.update`
+
+## zip
+python2中，zip会返回list；而python3中返回的zip对象，只能支持一次iteration。
 
 ## int & bytes 转换
 ```

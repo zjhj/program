@@ -1,0 +1,86 @@
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+class Solution:
+	def findNode( self,s,k ):
+		nodeList = list()
+		nodeList.append( k )
+
+		# print( "NodeList: {}".format(nodeList) )
+
+		p = 0
+		while p<len(nodeList):
+			for currData in s[nodeList[p]]:
+				if currData not in nodeList and currData[0] != -1:
+					nodeList.append( currData )
+			p += 1
+			# print( "C-NodeList: {}".format(nodeList) )
+
+		return nodeList
+
+	def hitBricks(self, grid, hits ):
+		supportData = dict()
+
+		for lineNumber,lineData in enumerate(grid):
+			for colNumber,cellData in enumerate(lineData):
+				if cellData == 1:
+					if (lineNumber,colNumber) not in supportData.keys():
+						supportData[(lineNumber,colNumber)] = list()
+					if lineNumber == 0:
+						supportData[(lineNumber,colNumber)].append( (-1,colNumber) )
+					else:
+						if grid[lineNumber-1][colNumber] == 1:
+							supportData[(lineNumber,colNumber)].append( (lineNumber-1,colNumber) )
+
+					if colNumber > 0 and grid[lineNumber][colNumber-1] == 1:
+						supportData[(lineNumber,colNumber)].append( (lineNumber,colNumber-1) )
+					if colNumber < len(lineData)-1 and grid[lineNumber][colNumber+1] == 1:
+						supportData[(lineNumber,colNumber)].append( (lineNumber,colNumber+1) )
+					if lineNumber < len(grid)-1 and grid[lineNumber+1][colNumber] == 1:
+						supportData[(lineNumber,colNumber)].append( (lineNumber+1,colNumber) )
+
+		print( "SupportData: {}".format(supportData) )
+
+		res = list()
+
+		for currHit in hits:
+			currHit = tuple( currHit )
+			if currHit in supportData.keys():
+				supportData.pop( currHit )
+			for currSupport in supportData:
+				if currHit in supportData[currSupport]:
+					supportData[currSupport].remove( currHit )
+
+			print( "Data after deletion: {}".format(supportData) )
+
+			validNode = list()
+			for currSupport in supportData:
+				if currSupport[0] == 0:
+					validNode.extend( self.findNode( supportData,currSupport ) )
+
+			res_cnt = 0
+			for k,v in supportData.items():
+				print( "k:{},v:{}".format(k,v) )
+				print( "validnode:{}".format(validNode) )
+				if k not in validNode:
+					res_cnt += 1
+			res.append( res_cnt )
+
+			for currKey in set(supportData.keys()).difference( set(validNode) ):
+				supportData.pop( currKey )
+
+		return res
+		# return supportData
+		# return fallCnt
+
+a = Solution()
+# b = [[1,0,0,0],[1,1,1,0]]
+# b = [[1,0,0,0],[1,1,0,0]]
+# b = [[1],[1],[1],[1],[1]]
+b = [[1,0,1],[1,1,1]]
+for _ in b:
+	print(_)
+# print( a.hitBricks( b,[[1,0]] ) )
+# print( a.hitBricks( b,[[1,1],[1,0]] ) )
+# print( a.hitBricks( b,[[3,0],[4,0],[1,0],[2,0],[0,0]] ) )
+print( a.hitBricks( b,[[0,0],[0,2],[1,1]] ) )
