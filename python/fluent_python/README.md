@@ -7,3 +7,11 @@
 - 特殊方法一览表：https://docs.python.org/3/reference/datamodel.html。
 - python3中reload可以通过`from importlib import reload`后使用。（the imp module is deprecated in favour of importlib）
 - 延申：https://docs.python.org/3/reference/datamodel.html。
+
+### 第二节
+- *运算符可用于将可迭代对象拆开，作为函数的参数，比如： 
+```python
+>>> x = (16,4)
+>>> divmod(*x)
+(4, 0)
+```
