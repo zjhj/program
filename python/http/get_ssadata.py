@@ -3,7 +3,7 @@
 
 # from io import StringIO
 # from urllib.parse import urlencode
-from StringIO import StringIO
+from io import StringIO
 from urllib import urlencode
 
 #设置post请求， 上传文件的字段名 上传的文件

@@ -1,0 +1,5 @@
+#!/bin/sh
+#finduser
+set -x
+who | grep $1
+echo $*
